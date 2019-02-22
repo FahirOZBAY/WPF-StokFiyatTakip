@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="takipModelStoreContainer" CdmEntityContainer="takipEntities">
+    <EntitySetMapping Name="urun">
+      <EntityTypeMapping TypeName="takipModel.urun">
+        <MappingFragment StoreEntitySet="urun">
+          <ScalarProperty Name="barkod" ColumnName="barkod" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="toptan" ColumnName="toptan" />
+          <ScalarProperty Name="perakende" ColumnName="perakende" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

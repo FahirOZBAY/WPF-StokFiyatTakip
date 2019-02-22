@@ -1,0 +1,52 @@
+﻿<Window x:Class="WpfApp3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="Ürün Takip"
+         WindowStyle="ToolWindow"
+    WindowState="Maximized"
+        Loaded="Window_Loaded" Height="737" Width="1366">
+    <Grid Margin="0,0,2,0" Height="748" VerticalAlignment="Top">
+        <DataGrid x:Name="dgurun"  CanUserResizeColumns="False" CanUserResizeRows="False" CanUserAddRows="False" RowHeaderWidth="0"
+    AlternatingRowBackground="LightSteelBlue"  AlternationCount="2" GridLinesVisibility="Horizontal" HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="636" Margin="10,68,0,0" VerticalAlignment="Top" Width="900" SelectionChanged="dgurun_SelectionChanged" MouseLeftButtonDown="dgurun_MouseLeftButtonDown" SelectionMode="Single" IsReadOnly="True" RenderTransformOrigin="0.503,0.52"
+ >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding barkod}"  Width="98" Header="Barkod"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ad}" Width="250" Header="Ürün Adı"></DataGridTextColumn>
+
+
+                <DataGridTextColumn Binding="{Binding toptan}" Width="80" Header="Toptan"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding perakende}" Width="80" Header="Perakende"></DataGridTextColumn>
+
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+
+        <TextBox Name="barkod" TabIndex="0"  HorizontalAlignment="Left" Height="23" Margin="948,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="380"
+                 Text="{Binding ElementName=dgurun, Path=SelectedItem.barkod}"/>
+        <TextBox Name="ad"  TabIndex="1" HorizontalAlignment="Left" Height="23" Margin="948,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="380" Text="{Binding ElementName=dgurun, Path=SelectedItem.ad}"/>
+        <TextBox Name="toptan"  TabIndex="2" HorizontalAlignment="Left" Height="23" Margin="948,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="380" Text="{Binding ElementName=dgurun, Path=SelectedItem.toptan}" PreviewTextInput="PreviewTextInput" />
+        <TextBox Name="perakende"  TabIndex="3" HorizontalAlignment="Left" Height="23" Margin="948,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="380" Text="{Binding ElementName=dgurun, Path=SelectedItem.perakende}" PreviewTextInput="PreviewTextInput" />
+        <TextBox Name="id" Text="{Binding ElementName=dgurun, Path=SelectedItem.id}" HorizontalAlignment="Left" Height="23" Margin="369,133,0,0" TextWrapping="Wrap" 
+                  VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <Button Content="Ekle"  TabIndex="4" HorizontalAlignment="Left" Margin="950,291,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.027,0.45" Click="Button_Click"/>
+        <Button Content="Güncelle"  TabIndex="5" HorizontalAlignment="Left" Margin="1060,291,0,0" VerticalAlignment="Top" Width="50" Click="Button_Click_2"/>
+        <Button Content="Sil"  TabIndex="6" HorizontalAlignment="Left" Margin="1170,291,0,0" VerticalAlignment="Top" Width="50" Click="Button_Click_1" RenderTransformOrigin="0.22,0.55"/>
+        <Button Content="Temizle"  TabIndex="7" HorizontalAlignment="Left" Margin="1280,291,0,0" VerticalAlignment="Top" Width="50" Click="Button_Click_3"/>
+        <TextBox Name="ara"  TabIndex="8" HorizontalAlignment="Left" Height="23" Margin="10,37,0,0" TextWrapping="Wrap" Text="Barkod veya ürün adı girin" VerticalAlignment="Top" Width="900" TextChanged="TextBox_TextChanged" DataContext= "{Binding}" MouseEnter="ara_MouseEnter"/>
+        <Label Content="Barkod" HorizontalAlignment="Left" Margin="949,6,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ürün Adı" HorizontalAlignment="Left" Margin="948,65,0,0" VerticalAlignment="Top"/>
+        <Label Content="Toptan" HorizontalAlignment="Left" Margin="950,124,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,0.308"/>
+        <Label Content="Perakende" HorizontalAlignment="Left" Margin="948,183,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.646,0.385"/>
+
+        <Label Content="Arama" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
+        <Image Margin="910,325,0,44" Source="1.png" Stretch="Fill"/>
+
+
+    </Grid>
+
+</Window>
