@@ -9,9 +9,7 @@ using System.Windows.Input;
 namespace WpfApp3
 {
 
-    /// <summary>
-    /// MainWindow.xaml etkileşim mantığı
-    /// </summary>
+ 
     public partial class MainWindow : Window
     {
         takipEntities db;
@@ -24,7 +22,8 @@ namespace WpfApp3
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            db = new takipEntities();//datagride ürünleri listeliyoruz
+            //datagride ürünleri listeliyoruz
+            db = new takipEntities();
             dgurun.ItemsSource = db.urun.ToList();
         }
 
@@ -49,12 +48,7 @@ namespace WpfApp3
 
                 db.SaveChanges();
             }
-            dgurun.ItemsSource = db.urun.ToList();//kayıttan sonra yenileme 
-            id.Text = "";
-            ad.Text = "";
-            barkod.Text = "";
-            perakende.Text = "";
-            toptan.Text = "";
+            temizle();
 
 
 
@@ -77,13 +71,7 @@ namespace WpfApp3
                 db.SaveChanges();
 
             }
-            dgurun.ItemsSource = db.urun.ToList();//işlemden sonra yenileme 
-            id.Text = "";
-
-            ad.Text = "";
-            barkod.Text = "";
-            perakende.Text = "";
-            toptan.Text = "";
+            temizle();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -104,19 +92,21 @@ namespace WpfApp3
 
                 db.SaveChanges();
             }
-            dgurun.ItemsSource = db.urun.ToList();//işlemden sonra yenileme 
-            id.Text = "";
-
-            ad.Text = "";
-            barkod.Text = "";
-            perakende.Text = "";
-            toptan.Text = "";
-
+ 
 
         }
 
         private void dgurun_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
+        }
+        public void temizle(){
+            dgurun.ItemsSource = db.urun.ToList();//işlemden sonra yenileme 
+            id.Text = "";
+            ad.Text = "";
+            barkod.Text = "";
+            perakende.Text = "";
+            toptan.Text = "";
 
         }
 
@@ -161,7 +151,6 @@ namespace WpfApp3
         {
             dgurun.SelectedIndex = -1;
             id.Text = "";
-
             ad.Text = "";
             barkod.Text = "";
             perakende.Text = "";
