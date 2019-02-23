@@ -5,10 +5,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-
 namespace WpfApp3
 {
-
  
     public partial class MainWindow : Window
     {
@@ -49,19 +47,13 @@ namespace WpfApp3
                 db.SaveChanges();
             }
             temizle();
-
-
-
-
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {//silme işlemi
 
-
             if (ad.Text == "" || barkod.Text == "" || perakende.Text == "" || toptan.Text == "")
             {
-
             }
             else
             {
@@ -92,8 +84,6 @@ namespace WpfApp3
 
                 db.SaveChanges();
             }
- 
-
         }
 
         private void dgurun_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -107,12 +97,6 @@ namespace WpfApp3
             barkod.Text = "";
             perakende.Text = "";
             toptan.Text = "";
-
-        }
-
-        private void dgurun_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
 
         }
 
